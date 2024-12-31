@@ -303,6 +303,7 @@ app.delete('/tweets/:tweetId/', authentication, async (request, response) => {
     WHERE tweet_id = ${tweetId};`
 
   const tweetUserId = await db.get(getUserIdQuery)
+
   // console.log(tweetUserId)
   if (tweetUserId.user_id === userId) {
     const deleteTweetQuery = `
